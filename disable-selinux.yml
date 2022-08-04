@@ -3,8 +3,12 @@
   hosts: all
   connection: local
 
+  gather_facts: yes
   tasks:
-  - name: Put SELinux in permissive mode, logging actions that would be blocked.
-    selinux:
-      policy: targeted
-      state: permissive
+    - name: Get IP address
+      debug: var=hostvars[inventory_hostname]['ansible_env'].SSH_CONNECTION.split(' ')[2]
+
+    - name: Put SELinux in permissive mode, logging actions that would be blocked.
+      selinux:
+        policy: targeted
+        state: permissive
