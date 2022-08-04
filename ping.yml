@@ -1,7 +1,7 @@
 ---
 - name: Ping test
   hosts: all
-  connection: local
+  connection: ssh
 
   tasks:
   - name: Ping each host
