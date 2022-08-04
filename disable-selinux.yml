@@ -1,7 +1,7 @@
 ---
 - name: Disable SELinux
   hosts: all
-  connection: local
+  connection: ssh
 
   gather_facts: yes
   tasks:
