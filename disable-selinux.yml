@@ -1,0 +1,10 @@
+---
+- name: Disable SELinux
+  hosts: all
+  connection: local
+
+  tasks:
+  - name: Put SELinux in permissive mode, logging actions that would be blocked.
+    selinux:
+      policy: targeted
+      state: permissive
