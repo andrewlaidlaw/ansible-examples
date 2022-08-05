@@ -3,6 +3,10 @@
   hosts: all
   connection: ssh
 
+  gather_facts: yes
   tasks:
+  - name: Get IP address
+    debug: var=hostvars[inventory_hostname]['ansible_env'].SSH_CONNECTION.split(' ')[2]
+
   - name: Ping each host
     ansible.builtin.ping:
