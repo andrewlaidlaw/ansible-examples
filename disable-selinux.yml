@@ -12,3 +12,9 @@
       selinux:
         policy: targeted
         state: permissive
+    
+    - name: Create a file in /etc/ to note the change
+      ansible.builtin.file:
+        path: /etc/changed
+        state: touch
+        mode: '0644'
