@@ -1,0 +1,26 @@
+---
+- name: Simple test for Ansible
+  hosts: aix
+  become: true
+  collections:
+    - ibm.power_hmc
+    - ibm.power_aix
+
+  tasks:
+  - name: Check connectivity
+    ansible.builtin.ping:
+  
+  - name: Find and print the IP address of each host  
+    ansible.builtin.debug:
+      var: hostvars[inventory_hostname]['ansible_default_ipv4']['address']
+  
+  - name: Install postgres on AIX using freeware yum
+    ansible.builtin.package:
+      name: postgresql-server
+      state: present
+  
+  - name: run the postgres setup command
+    ansible.builtin.command: /usr/pgsql-setup/bin/postgresql-setup initdb
+    args:
+      creates: /var/lib/pgsql/data/postgresql.conf
+  

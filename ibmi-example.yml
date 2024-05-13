@@ -1,0 +1,27 @@
+---
+- name: IBM i example playbook
+  hosts: ibmi
+  gather_facts: false
+  become: false
+  collections:
+   - ibm.power_ibmi
+
+  tasks:
+  # Query the status of PTFs
+  - name: Query two PTFs
+
+
+  # Query the status of PTFs SI84894 and SI84893
+  - name: Query two PTFs (SI84894 and SI84893)
+
+  
+  - name: display two PTFs
+
+
+  - name: check the status of the two PTFs
+
+
+  - name: IBM i apply a set of single PTFs one by one
+  
+
+
