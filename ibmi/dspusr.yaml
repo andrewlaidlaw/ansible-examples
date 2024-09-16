@@ -1,0 +1,16 @@
+---
+- name: Get a User Profile from an IBM i system
+  hosts: ibmi
+  collections:
+    - ibm.power_ibmi
+    
+  tasks:
+  - name: display user profile
+    ibm.power_ibmi.ibmi_user_and_group:
+      operation: 'display'
+      user: 'CECUSER'
+    register: dspusrprf_result
+
+  - name: print result
+    ansible.builtin.debug:
+      var: dspusrprf_result.result_set

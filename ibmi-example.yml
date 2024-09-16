@@ -21,7 +21,11 @@
   - name: check the status of the two PTFs
 
 
+  - name: Execute an SQL query against the database
+    
+
   - name: IBM i apply a set of single PTFs one by one
   
 
+  - name: Reboot the system
 
